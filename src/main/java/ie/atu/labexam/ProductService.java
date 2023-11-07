@@ -1,13 +1,19 @@
 package ie.atu.labexam;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Service;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+import java.util.ArrayList;
+
+@Service
 public class ProductService {
-    private String productName;
-    private String productID;
+    ArrayList<Product> warehouse = new ArrayList<Product>();
+    public String addProduct(Product product) {
+        String message = "You added the product: " + product.getProductName();
+        warehouse.add(product);
+        return message;
+    }
+    public ArrayList<Product> getProduct(){
+        return warehouse;
+    }
+
 }
